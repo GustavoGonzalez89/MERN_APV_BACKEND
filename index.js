@@ -27,7 +27,9 @@ const corsOptions = {
 };
 app.use(cors(corsOptions))
 
-
+app.use(cors({
+  origin: 'https://apv-frontend-three.vercel.app'
+}));
 app.use("/api/veterinarios",veterinarioRoutes);
 app.use("/api/pacientes",pacientesRoutes);
 
