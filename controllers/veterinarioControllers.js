@@ -32,9 +32,9 @@ const registrar = async (req, res) => {
         res.json(veterinarioGuardado);
     } catch (error) {
         console.log(error)
+        res.status(500).json({ msg: 'Error interno del servidor' })
     }
 };
-
 
 
 
