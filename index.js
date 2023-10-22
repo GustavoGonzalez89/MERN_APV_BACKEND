@@ -13,7 +13,7 @@ conectarDB();
 
 
 const corsOptions = {
-    origin: process.env.FRONTEND_URL,
+    origin: `https://apv-frontend-beryl.vercel.app`,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type,Authorization",
 };
