@@ -2,7 +2,7 @@ import express from "express";
 import conectarDB from "./config/db.js";
 import dotenv from "dotenv";
 import veterinarioRoutes from "./routes/veterinarioRoutes.js";
-import pacientesRoutes from '../backend/routes/pacientesRoutes.js'
+import pacientesRoutes from './routes/pacientesRoutes.js'
 import cors from "cors"
 
 
