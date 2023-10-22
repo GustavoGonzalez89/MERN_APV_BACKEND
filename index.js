@@ -11,14 +11,11 @@ app.use(express.json()); //de esa forma le decimos aue vamos a enviarle datos de
 dotenv.config();
 conectarDB();
 
-
-const corsOptions = {
+app.use(cors({
     origin: `https://apv-frontend-beryl.vercel.app`,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type,Authorization",
-};
-
-app.use(cors(corsOptions))
+}));
 
 app.use("/api/veterinarios",veterinarioRoutes);
 app.use("/api/pacientes",pacientesRoutes);
