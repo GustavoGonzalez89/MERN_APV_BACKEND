@@ -1,6 +1,7 @@
 import express from "express";
 import { registrar,perfil,confirmar,autenticar,olvidePassword,comprobarToken,nuevoPassword, actualizarPerfil,actualizarPassword} from "../controllers/veterinarioControllers.js";
 import checkAuth from "../MIDDLEWARE/authMiddleware.js";
+import cors from "cors"
 
 
 const router=  express.Router();
