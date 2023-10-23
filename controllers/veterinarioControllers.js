@@ -6,7 +6,9 @@ import emailOlvidePassword from "../helpers/emailOlvidePassword.js";
 
 
 
-
+const accepted_origin = [
+    'https://apv-frontend-mu.vercel.app'
+]
 
 
 const registrar = async (req, res) => {
@@ -63,6 +65,10 @@ const confirmar = async (req, res) => {
 
 
 const autenticar = async (req, res) => {
+    const origin = req.header('origin')
+    if(accepted_origin.includes(origin) || !origin){
+        res.header(Access-Control-Allow-Origin, origin)
+    }
     const { email, password } = req.body;
     console.log(req.body)
     //cOMPROBAR QUE EL USUARIO EXISTE
