@@ -4,6 +4,16 @@ import checkAuth from "../MIDDLEWARE/authMiddleware.js";
 
 
 const router=  express.Router();
+
+
+// Configuración CORS específica para este controlador
+const corsOptions = {
+  origin: 'http://cliente-especifico.com', // Reemplaza con el dominio permitido
+  methods: 'POST', // Solo permitimos solicitudes POST
+};
+
+// Habilitar CORS con las opciones específicas en este controlador
+router.use(cors(corsOptions));
 // AREA PUBLICA NO SE REQUIERE TENER UNA UNA CUENTA PARA ACCEDER A ESTAS RUTAS
 router.post('/registrar', registrar);
 router.get('/confirmar/:token', confirmar);
