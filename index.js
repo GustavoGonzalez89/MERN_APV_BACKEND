@@ -12,11 +12,15 @@ dotenv.config();
 conectarDB();
 
 // Configuración CORS para toda la aplicación
-app.use(cors({
-  origin: 'https://apv-frontend-mu.vercel.app', // Reemplaza con el dominio permitido
-  methods: 'POST', // Solo permitimos solicitudes POST
-  allowedHeaders: 'Content-Type, Authorization',
-}));
+app.use(
+  cors({
+    origin: 'https://apv-frontend-mu.vercel.app', // Reemplaza con el dominio permitido
+    methods: 'GET,POST,PUT,PATCH,DELETE', // Métodos HTTP permitidos
+    credentials: true, // Habilita las cookies y encabezados de autorización
+    optionsSuccessStatus: 204, // Responde a las pre-solicitudes OPTIONS con 204
+    allowedHeaders: 'Content-Type, Authorization', // Encabezados permitidos
+  })
+);
 
 app.use("/api/veterinarios",veterinarioRoutes);
 app.use("/api/pacientes",pacientesRoutes);
