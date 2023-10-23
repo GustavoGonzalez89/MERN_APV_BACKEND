@@ -1,20 +1,9 @@
 import express from "express";
 import { registrar,perfil,confirmar,autenticar,olvidePassword,comprobarToken,nuevoPassword, actualizarPerfil,actualizarPassword} from "../controllers/veterinarioControllers.js";
 import checkAuth from "../MIDDLEWARE/authMiddleware.js";
-import cors from "cors"
-
 
 const router=  express.Router();
 
-
-// Configuración CORS específica para este controlador
-const corsOptions = {
-  origin: 'http://cliente-especifico.com', // Reemplaza con el dominio permitido
-  methods: 'POST', // Solo permitimos solicitudes POST
-};
-
-// Habilitar CORS con las opciones específicas en este controlador
-router.use(cors(corsOptions));
 // AREA PUBLICA NO SE REQUIERE TENER UNA UNA CUENTA PARA ACCEDER A ESTAS RUTAS
 router.post('/registrar', registrar);
 router.get('/confirmar/:token', confirmar);
