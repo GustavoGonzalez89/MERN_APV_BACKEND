@@ -7,7 +7,7 @@ import emailOlvidePassword from "../helpers/emailOlvidePassword.js";
 
 
 const accepted_origin = [
-    'https://apv-frontend-mu.vercel.app'
+    'https://apv-frontend-mu.vercel.app/'
 ]
 
 
