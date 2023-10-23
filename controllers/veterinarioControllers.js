@@ -10,7 +10,10 @@ import emailOlvidePassword from "../helpers/emailOlvidePassword.js";
 
 
 const registrar = async (req, res) => {
-
+    const origin = req.header('origin')
+    if(allowedOrigins.includes(origin) || !origin){
+         res.header('Access-Control-Allow-Origin', '*') 
+    }
     const { email, nombre } = req.body;
     const existeEmail = await Veterinario.findOne({ email });
     if (existeEmail) {
