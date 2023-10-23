@@ -11,12 +11,12 @@ app.use(express.json()); //de esa forma le decimos aue vamos a enviarle datos de
 dotenv.config();
 conectarDB();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'POST'); // Especificamos que solo permitimos solicitudes POST
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+// Configuración CORS para toda la aplicación
+app.use(cors({
+  origin: 'https://apv-frontend-mu.vercel.app', // Reemplaza con el dominio permitido
+  methods: 'POST', // Solo permitimos solicitudes POST
+  allowedHeaders: 'Content-Type, Authorization',
+}));
 
 app.use("/api/veterinarios",veterinarioRoutes);
 app.use("/api/pacientes",pacientesRoutes);
