@@ -11,6 +11,11 @@ app.use(express.json()); //de esa forma le decimos aue vamos a enviarle datos de
 dotenv.config();
 conectarDB();
 
+
+
+
+
+
 // Lista de orígenes aceptados
 const allowedOrigins = [
     'https://apv-frontend-mu.vercel.app',
@@ -40,6 +45,7 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', corsOptions.methods);
     next();
   });
+
 
 
 app.use("/api/veterinarios",veterinarioRoutes);
